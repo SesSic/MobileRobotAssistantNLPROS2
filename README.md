@@ -2,7 +2,7 @@
 
 > ROS2-based mobile assistant robot for educational environments, integrating offline NLP in Spanish, YOLOv8n object detection, and reactive navigation on Raspberry Pi 4B.
 
-📄 **Paper:** *Mobile Robot Assistant for Autonomous Navigation in Controlled Environments Using Natural Language Processing and ROS2* — Submitted to [Automation (MDPI)](https://www.mdpi.com/journal/automation), 2026.  
+📄 **Paper:** *Mobile Robot Assistant for Autonomous Navigation in Controlled Environments Using Natural Language Processing and ROS2* — Submitted to [Robotics (MDPI)](https://www.mdpi.com/journal/robotics), 2026.  
 👥 **Authors:** Sebastián Alexis Aucapiña, Nataly Cecilia Benalcázar, Ramiro Isa-Jara  
 🏛️ **Institution:** Universidad Tecnológica Indoamérica / ESPOCH — Ecuador
 
