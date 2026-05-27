@@ -193,7 +193,7 @@ If you use this work, please cite:
 @article{aucapina2026mobile,
   title={Mobile Robot Assistant for Autonomous Navigation in Controlled Environments Using Natural Language Processing and ROS2},
   author={Aucapi{\~n}a, Sebasti{\'a}n Alexis and Benalc{\'a}zar, Nataly Cecilia and Isa-Jara, Ramiro},
-  journal={Automation},
+  journal={Robotics},
   publisher={MDPI},
   year={2026}
 }
