@@ -1,4 +1,4 @@
-# Mobile Robot Assistant for Autonomous Navigation Using NLP and ROS2
+# ROS2-Based Low-Cost Mobile Robot for Educational Assistance with Reactive Navigation and Semantic-Cached Language Processing
 
 > ROS2-based mobile assistant robot for educational environments, integrating offline NLP in Spanish, YOLOv8n object detection, and reactive navigation on Raspberry Pi 4B.
 
