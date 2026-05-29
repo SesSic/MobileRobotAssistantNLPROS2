@@ -3,7 +3,7 @@
 > ROS2-based mobile assistant robot for educational environments, integrating offline NLP in Spanish, YOLOv8n object detection, and reactive navigation on Raspberry Pi 4B.
 
 📄 **Paper:** *Mobile Robot Assistant for Autonomous Navigation in Controlled Environments Using Natural Language Processing and ROS2* — Submitted to [Robotics (MDPI)](https://www.mdpi.com/journal/robotics), 2026.  
-👥 **Authors:** Sebastián Alexis Aucapiña, Nataly Cecilia Benalcázar, Ramiro Isa-Jara  
+👥 **Authors:** Sebastián Alexis Aucapiña, Nataly Cecilia Benalcázar, José Varela-Aldás and Ramiro Isa-Jara  
 🏛️ **Institution:** Universidad Tecnológica Indoamérica / ESPOCH — Ecuador
 
 ---
@@ -181,7 +181,7 @@ Door detection model trained using transfer learning on the [Door Dataset](https
 
 ## Data Availability
 
-The experimental data supporting the results of this study are available upon reasonable request from the corresponding author: saucapina2@indoamerica.edu.ec / sebaaucaaa@gmail.com
+The experimental data supporting the results of this study are available upon reasonable request: saucapina2@indoamerica.edu.ec / sebaaucaaa@gmail.com
 
 ---
 
@@ -192,7 +192,7 @@ If you use this work, please cite:
 ```bibtex
 @article{aucapina2026mobile,
   title={Mobile Robot Assistant for Autonomous Navigation in Controlled Environments Using Natural Language Processing and ROS2},
-  author={Aucapi{\~n}a, Sebasti{\'a}n Alexis and Benalc{\'a}zar, Nataly Cecilia and Isa-Jara, Ramiro},
+  author={Aucapi{\~n}a, Sebasti{\'a}n Alexis and Benalc{\'a}zar, Nataly Cecilia and and Varela-Aldás José and Isa-Jara, Ramiro},
   journal={Robotics},
   publisher={MDPI},
   year={2026}
