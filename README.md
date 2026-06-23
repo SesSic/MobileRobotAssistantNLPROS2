@@ -18,6 +18,8 @@ The robot operates in two modes:
 
 Total hardware cost: **under $250 USD**.
 
+<img width="479" height="721" alt="RobotFrontal" src="https://github.com/user-attachments/assets/8b54bf38-cca8-4fb1-814c-e531dad77472" />
+
 ---
 
 ## System Architecture
