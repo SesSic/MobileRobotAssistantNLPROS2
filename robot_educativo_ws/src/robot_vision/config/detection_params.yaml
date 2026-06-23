@@ -1,0 +1,22 @@
+# Parámetros de detección para Robot Educativo
+detector:
+  # Umbrales de confianza
+  confidence_threshold: 0.25
+  door_confidence_threshold: 0.20
+  
+  # Clases a detectar
+  classes:
+    - persona
+    - silla
+    - mesa
+    - puerta
+    - mochila
+  
+  # Rendimiento
+  max_fps: 5.0  # Máximo para Raspberry Pi
+  resize_factor: 0.5  # Reducir imagen para más velocidad
+  
+  # Visualización
+  show_fps: true
+  show_labels: true
+  show_confidence: true

@@ -1,0 +1,497 @@
+[
+    {
+        "pregunta": "¿Qué es la fotosíntesis?",
+        "respuesta": "La fotosíntesis es el proceso mediante el cual las plantas convierten la luz solar en energía química.",
+        "keywords": ["fotosíntesis", "plantas", "luz solar", "energía", "clorofila", "oxígeno", "dióxido de carbono", "sol", "hojas", "alimento"]
+    },
+    {
+        "pregunta": "¿Qué es un robot?",
+        "respuesta": "Un robot es una máquina programable que puede realizar tareas de forma autónoma o semiautónoma.",
+        "keywords": ["robot", "máquina", "programable", "autónomo", "tareas", "automatizado", "tecnología", "sensor", "movimiento", "inteligencia artificial"]
+    },
+    {
+        "pregunta": "¿Cuántos minutos tiene una hora?",
+        "respuesta": "Una hora tiene 60 minutos.",
+        "keywords": ["minutos", "hora", "60", "tiempo", "reloj", "sesenta", "horario", "minutero", "círculo", "medir"]
+    },
+    {
+        "pregunta": "¿Cómo se llama un polígono de 3 lados?",
+        "respuesta": "Se llama triángulo.",
+        "keywords": ["triángulo", "tres lados", "polígono", "figura", "geométrica", "3", "ángulos", "vértices", "trigonometría", "forma"]
+    },
+    {
+        "pregunta": "¿Cuánto es 7 por 8?",
+        "respuesta": "7 por 8 es igual a 56.",
+        "keywords": ["7", "8", "56", "multiplicación", "tablas", "producto", "por", "siete", "ocho", "cincuenta y seis"]
+    },
+    {
+        "pregunta": "¿Cómo se llama el resultado de una suma?",
+        "respuesta": "El resultado de una suma se llama suma o total.",
+        "keywords": ["suma", "resultado", "total", "operación", "más", "añadir", "juntar", "adición", "números", "combinar"]
+    },
+    {
+        "pregunta": "¿Cuántos lados tiene un cuadrado?",
+        "respuesta": "Un cuadrado tiene 4 lados.",
+        "keywords": ["cuadrado", "lados", "4", "cuatro", "figura", "geométrica", "polígono", "iguales", "ángulos rectos", "vértices"]
+    },
+    {
+        "pregunta": "¿Qué es la mitad de 10?",
+        "respuesta": "La mitad de 10 es 5.",
+        "keywords": ["mitad", "10", "5", "dividir", "partir", "dos", "cincuenta", "fracción", "medios", "repartir"]
+    },
+    {
+        "pregunta": "¿Cómo se llama la operación de quitar números?",
+        "respuesta": "Se llama resta o sustracción.",
+        "keywords": ["resta", "quitar", "sustracción", "menos", "diferencia", "disminuir", "operación", "disminución", "residuo", "sustraer"]
+    },
+    {
+        "pregunta": "¿Qué número sigue después del 99?",
+        "respuesta": "El número que sigue es el 100.",
+        "keywords": ["99", "100", "sigue", "después", "número", "siguiente", "noventa y nueve", "cien", "centena", "contar"]
+    },
+    {
+        "pregunta": "¿Cuál es la capital del Ecuador?",
+        "respuesta": "La capital del Ecuador es Quito.",
+        "keywords": ["capital", "ecuador", "quito", "ciudad", "país", "sudamérica", "mitad del mundo", "carita de dios", "distrito", "metropolitano"]
+    },
+    {
+        "pregunta": "¿En qué continente está Ecuador?",
+        "respuesta": "Ecuador está en el continente americano, en América del Sur.",
+        "keywords": ["ecuador", "continente", "américa", "sur", "sudamérica", "latinoamérica", "país", "mapa", "región", "andina"]
+    },
+    {
+        "pregunta": "¿Quién fue Eloy Alfaro?",
+        "respuesta": "Fue un líder revolucionario y presidente de Ecuador, conocido como el Viejo Luchador.",
+        "keywords": ["eloy alfaro", "viejo luchador", "ecuador", "presidente", "revolución", "liberal", "ferrocarril", "manabí", "historia", "montonero"]
+    },
+    {
+        "pregunta": "¿Qué océano baña las costas de Ecuador?",
+        "respuesta": "El océano Pacífico baña las costas de Ecuador.",
+        "keywords": ["océano", "pacífico", "ecuador", "costas", "mar", "playas", "salado", "agua", "corriente de humboldt", "bahía"]
+    },
+    {
+        "pregunta": "¿Cuáles son las regiones naturales del Ecuador?",
+        "respuesta": "Las cuatro regiones son: Costa, Sierra, Amazonía y Región Insular (Galápagos).",
+        "keywords": ["regiones", "ecuador", "costa", "sierra", "amazonía", "oriente", "galápagos", "insular", "naturales", "geografía"]
+    },
+    {
+        "pregunta": "¿Qué idioma se habla en Ecuador?",
+        "respuesta": "El idioma oficial es el español, pero también se hablan lenguas nativas como el kichwa.",
+        "keywords": ["idioma", "español", "castellano", "ecuador", "kichwa", "quichua", "lengua", "nativa", "oficial", "hablar"]
+    },
+    {
+        "pregunta": "¿Cómo se llama la moneda de Ecuador?",
+        "respuesta": "La moneda de Ecuador es el dólar estadounidense.",
+        "keywords": ["moneda", "ecuador", "dólar", "dinero", "billete", "centavos", "americano", "divisa", "económico", "usd"]
+    },
+    {
+        "pregunta": "¿Dónde está la Mitad del Mundo?",
+        "respuesta": "Está en San Antonio de Pichincha, cerca de Quito.",
+        "keywords": ["mitad del mundo", "quito", "pichincha", "línea equinoccial", "ecuador", "ecuatorial", "0 grados", "monumento", "san antonio", "ciudad"]
+    },
+    {
+        "pregunta": "¿Qué son los sustantivos?",
+        "respuesta": "Son palabras que usamos para nombrar personas, animales, cosas o lugares.",
+        "keywords": ["sustantivos", "nombres", "personas", "animales", "cosas", "lugares", "nombrar", "objetos", "seres", "vocabulario"]
+    },
+    {
+        "pregunta": "¿Cuál es el antónimo de 'alto'?",
+        "respuesta": "El antónimo de alto es bajo.",
+        "keywords": ["antónimo", "alto", "bajo", "contrario", "opuesto", "significado", "palabra", "altura", "pequeño", "inverso"]
+    },
+    {
+        "pregunta": "¿Qué es un verbo?",
+        "respuesta": "Es una palabra que indica una acción o un estado (correr, saltar, estar).",
+        "keywords": ["verbo", "acción", "movimiento", "estado", "hacer", "correr", "saltar", "infinitivo", "conjugar", "oración"]
+    },
+    {
+        "pregunta": "¿Cómo se llama la oración que expresa un sentimiento fuerte?",
+        "respuesta": "Se llama oración exclamativa y lleva signos de admiración (¡!).",
+        "keywords": ["exclamativa", "admiración", "sentimiento", "signos", "oración", "emoción", "alegría", "sorpresa", "¡", "!"]
+    },
+    {
+        "pregunta": "¿Qué son los sinónimos?",
+        "respuesta": "Son palabras que tienen un significado igual o muy parecido.",
+        "keywords": ["sinónimos", "parecido", "igual", "significado", "similar", "palabras", "vocabulario", "equivalentes", "semejantes", "analogía"]
+    },
+    {
+        "pregunta": "¿Cuál es el plural de 'lápiz'?",
+        "respuesta": "El plural de lápiz es lápices.",
+        "keywords": ["lápiz", "plural", "lápices", "singular", "varios", "más de uno", "palabra", "ortografía", "z", "ces"]
+    },
+    {
+        "pregunta": "¿Qué tipo de palabra es 'rápidamente'?",
+        "respuesta": "Es un adverbio de modo, indica cómo se hace algo.",
+        "keywords": ["adverbio", "rápidamente", "modo", "manera", "veloz", "cómo", "complemento", "verbo", "calificar", "acción"]
+    },
+    {
+        "pregunta": "¿Para qué sirven los signos de interrogación?",
+        "respuesta": "Sirven para hacer preguntas (¿?).",
+        "keywords": ["interrogación", "pregunta", "signos", "¿", "?", "dudar", "cuestionar", "oración", "gramática", "español"]
+    },
+    {
+        "pregunta": "¿Por qué pasa el día y la noche?",
+        "respuesta": "Porque la Tierra gira sobre sí misma (movimiento de rotación).",
+        "keywords": ["día", "noche", "tierra", "rotación", "gira", "sol", "luz", "oscuridad", "planeta", "24 horas"]
+    },
+    {
+        "pregunta": "¿Qué necesitan las plantas para vivir?",
+        "respuesta": "Necesitan agua, luz del sol, aire y sales minerales.",
+        "keywords": ["plantas", "vivir", "agua", "sol", "luz", "aire", "minerales", "tierra", "nutrientes", "crecer"]
+    },
+    {
+        "pregunta": "¿Cómo se llama el animal más grande del mundo?",
+        "respuesta": "Es la ballena azul.",
+        "keywords": ["ballena", "azul", "animal", "grande", "mar", "cetáceo", "gigante", "océano", "peso", "tamaño"]
+    },
+    {
+        "pregunta": "¿Qué son los animales herbívoros?",
+        "respuesta": "Son los que se alimentan solo de plantas y hierbas.",
+        "keywords": ["herbívoros", "animales", "plantas", "hierba", "comer", "alimentación", "vegetarianos", "hojas", "pastan", "naturaleza"]
+    },
+    {
+        "pregunta": "¿Cuántos huesos tiene aproximadamente el cuerpo humano?",
+        "respuesta": "Un adulto tiene 206 huesos.",
+        "keywords": ["huesos", "cuerpo", "humano", "206", "esqueleto", "adulto", "anatomía", "sistema óseo", "calcáneo", "fémur"]
+    },
+    {
+        "pregunta": "¿Para qué sirve el corazón?",
+        "respuesta": "Sirve para bombear la sangre a todo el cuerpo.",
+        "keywords": ["corazón", "bombear", "sangre", "cuerpo", "latido", "órgano", "vida", "circular", "arterias", "venas"]
+    },
+    {
+        "pregunta": "¿Qué es la energía?",
+        "respuesta": "Es la capacidad que tiene algo para producir un trabajo o movimiento.",
+        "keywords": ["energía", "capacidad", "trabajo", "movimiento", "fuerza", "calor", "luz", "electricidad", "poder", "recurso"]
+    },
+    {
+        "pregunta": "¿Qué son los planetas?",
+        "respuesta": "Son cuerpos celestes que giran alrededor de una estrella, como el Sol.",
+        "keywords": ["planetas", "giran", "sol", "estrella", "órbita", "espacio", "tierra", "marte", "sistema solar", "astros"]
+    },
+    {
+        "pregunta": "¿Cuál es el órgano más grande del cuerpo humano?",
+        "respuesta": "Es la piel.",
+        "keywords": ["piel", "órgano", "grande", "cuerpo", "humano", "protege", "epidermis", "sentido", "tacto", "externo"]
+    },
+    {
+        "pregunta": "¿Qué produce la abeja?",
+        "respuesta": "La abeja produce miel y cera.",
+        "keywords": ["abeja", "miel", "cera", "produce", "insecto", "colmena", "dulce", "polen", "panal", "zumbido"]
+    },
+    {
+        "pregunta": "¿Qué es la materia?",
+        "respuesta": "Es todo lo que ocupa un lugar en el espacio y tiene masa.",
+        "keywords": ["materia", "espacio", "lugar", "masa", "objeto", "átomo", "elemento", "física", "peso", "volumen"]
+    },
+    {
+        "pregunta": "¿Cómo se llama la capa de aire que rodea la Tierra?",
+        "respuesta": "Se llama atmósfera.",
+        "keywords": ["atmósfera", "aire", "tierra", "rodea", "gases", "oxígeno", "capa", "clima", "respirar", "espacio"]
+    },
+    {
+        "pregunta": "¿Qué son los animales carnívoros?",
+        "respuesta": "Son animales que se alimentan de la carne de otros animales.",
+        "keywords": ["carnívoros", "carne", "animales", "comen", "depredadores", "cazar", "dientes", "león", "tigre", "alimentación"]
+    },
+    {
+        "pregunta": "¿Qué significan las siglas 'ADN'?",
+        "respuesta": "Significa Ácido Desoxirribonucleico y contiene nuestra información genética.",
+        "keywords": ["adn", "ácido", "desoxirribonucleico", "genética", "información", "hereda", "célula", "cromosoma", "genes", "molécula"]
+    },
+    {
+        "pregunta": "¿Qué fracción de la Tierra es agua?",
+        "respuesta": "Aproximadamente tres cuartas partes (3/4) de la Tierra son agua.",
+        "keywords": ["agua", "tierra", "fracción", "3/4", "tres cuartas", "planeta", "océanos", "mares", "superficie", "azul"]
+    },
+    {
+        "pregunta": "¿Cómo se llama la ciencia que estudia los insectos?",
+        "respuesta": "Se llama entomología.",
+        "keywords": ["entomología", "insectos", "ciencia", "estudia", "bichos", "artrópodos", "biología", "hormigas", "escarabajos", "mariposas"]
+    },
+    {
+        "pregunta": "¿Qué es un eclipse solar?",
+        "respuesta": "Ocurre cuando la Luna se interpone entre la Tierra y el Sol, tapando su luz.",
+        "keywords": ["eclipse", "solar", "luna", "sol", "tierra", "tapa", "oscurece", "sombra", "astro", "alineación"]
+    },
+    {
+        "pregunta": "¿Cómo se llaman los dientes que sirven para triturar la comida?",
+        "respuesta": "Se llaman muelas o molares.",
+        "keywords": ["muelas", "molares", "dientes", "triturar", "masticar", "comida", "boca", "moler", "mandíbula", "sólidos"]
+    },
+    {
+        "pregunta": "¿Qué son los microorganismos?",
+        "respuesta": "Son seres vivos tan pequeños que solo se ven con un microscopio.",
+        "keywords": ["microorganismos", "pequeños", "microscopio", "seres vivos", "bacterias", "virus", "invisibles", "germen", "microbio", "diminuto"]
+    },
+    {
+        "pregunta": "¿Cómo se llama el proceso en que el agua se convierte en vapor?",
+        "respuesta": "Se llama evaporación.",
+        "keywords": ["evaporación", "agua", "vapor", "calor", "sol", "transformación", "gas", "cielo", "nubes", "líquido"]
+    },
+    {
+        "pregunta": "¿Qué parte de la célula controla todo?",
+        "respuesta": "El núcleo es el que controla la célula.",
+        "keywords": ["núcleo", "célula", "controla", "dirige", "adn", "información", "organelo", "membrana", "citoplasma", "corazón"]
+    },
+    {
+        "pregunta": "¿Qué es la gravedad?",
+        "respuesta": "Es la fuerza que nos mantiene pegados al suelo y hace que las cosas caigan.",
+        "keywords": ["gravedad", "fuerza", "suelo", "caer", "atracción", "tierra", "peso", "newton", "manzana", "órbita"]
+    },
+    {
+        "pregunta": "¿Cómo se llama el cambio de agua líquida a sólida?",
+        "respuesta": "Se llama solidificación o congelación.",
+        "keywords": ["solidificación", "congelación", "agua", "hielo", "frío", "sólido", "líquido", "transformación", "temperatura", "escarcha"]
+    },
+    {
+        "pregunta": "¿Qué función tienen las raíces de las plantas?",
+        "respuesta": "Sostienen la planta y absorben agua y minerales del suelo.",
+        "keywords": ["raíces", "sostienen", "absorben", "agua", "minerales", "suelo", "fijar", "nutrientes", "tallo", "anclar"]
+    },
+    {
+        "pregunta": "¿Qué son las palabras agudas?",
+        "respuesta": "Son las que llevan la fuerza de voz en la última sílaba y llevan tilde si terminan en N, S o vocal.",
+        "keywords": ["agudas", "palabras", "última sílaba", "tilde", "acento", "terminación", "n", "s", "vocal", "ortografía"]
+    },
+    {
+        "pregunta": "¿Qué es un adjetivo calificativo?",
+        "respuesta": "Es la palabra que dice cómo es o cómo está una persona, animal o cosa.",
+        "keywords": ["adjetivo", "calificativo", "cualidad", "describe", "persona", "animal", "cosa", "característica", "cómo es", "sustantivo"]
+    },
+    {
+        "pregunta": "¿Qué es un diptongo?",
+        "respuesta": "Es la unión de dos vocales en una misma sílaba.",
+        "keywords": ["diptongo", "dos vocales", "misma sílaba", "unión", "vocal", "fuerte", "débil", "acento", "palabra", "pronunciación"]
+    },
+    {
+        "pregunta": "¿Qué son los artículos?",
+        "respuesta": "Son palabras que van delante del sustantivo para identificarlo (el, la, los, las).",
+        "keywords": ["artículos", "el", "la", "los", "las", "determinantes", "sustantivo", "delante", "género", "número"]
+    },
+    {
+        "pregunta": "¿Qué es una oración?",
+        "respuesta": "Es un conjunto de palabras que tiene sentido completo y expresa una idea.",
+        "keywords": ["oración", "palabras", "sentido", "idea", "verbo", "sujeto", "predicado", "punto", "expresar", "comunicar"]
+    },
+    {
+        "pregunta": "¿Qué son los pronombres personales?",
+        "respuesta": "Son palabras que sirven para nombrar a las personas sin decir su nombre (yo, tú, él, nosotros, etc.).",
+        "keywords": ["pronombres", "personales", "yo", "tú", "él", "nosotros", "vosotros", "ellos", "sujeto", "reemplazar"]
+    },
+    {
+        "pregunta": "¿Qué es un texto instructivo?",
+        "respuesta": "Es un texto que explica paso a paso cómo hacer algo, como una receta o un manual.",
+        "keywords": ["instructivo", "pasos", "instrucciones", "cómo hacer", "receta", "manual", "guiar", "procedimiento", "orden", "explicar"]
+    },
+    {
+        "pregunta": "¿Qué es un cuento?",
+        "respuesta": "Es una narración corta de hechos imaginarios con pocos personajes.",
+        "keywords": ["cuento", "narración", "corta", "imaginario", "ficción", "personajes", "inicio", "nudo", "desenlace", "historia"]
+    },
+    {
+        "pregunta": "¿Para qué sirve el punto final?",
+        "respuesta": "Sirve para indicar que un texto o una oración ha terminado completamente.",
+        "keywords": ["punto final", "terminar", "texto", "oración", "finalizar", "punto", "acabar", "escritura", "signo", "ortografía"]
+    },
+    {
+        "pregunta": "¿Qué son las palabras graves?",
+        "respuesta": "Son las que llevan la fuerza de voz en la penúltima sílaba y llevan tilde cuando NO terminan en N, S o vocal.",
+        "keywords": ["graves", "llanas", "penúltima sílaba", "tilde", "acento", "terminación", "regla", "ortografía", "palabras", "acentuación"]
+    },
+    {
+        "pregunta": "¿Quién fue Eugenio Espejo?",
+        "respuesta": "Fue un médico y escritor quiteño, precursor de la independencia de Ecuador.",
+        "keywords": ["eugenio espejo", "médico", "escritor", "quiteño", "precursor", "independencia", "periodista", "primer diario", "prócer", "ecuador"]
+    },
+    {
+        "pregunta": "¿Qué significa la palabra 'Guayaquil'?",
+        "respuesta": "Viene de una unión de voces nativas que significan 'nuestro río grande' o similar.",
+        "keywords": ["guayaquil", "significado", "río grande", "nuestro río", "origen", "nativo", "huancavilca", "ciudad", "puerto", "etimología"]
+    },
+    {
+        "pregunta": "¿Qué fue la Batalla de Pichincha?",
+        "respuesta": "Fue la batalla que selló la independencia de Ecuador en 1822.",
+        "keywords": ["batalla", "pichincha", "independencia", "1822", "sucre", "libertad", "guerra", "quiteños", "españoles", "libertadores"]
+    },
+    {
+        "pregunta": "¿Quién fue la princesa Toa?",
+        "respuesta": "Fue una líder indígena de la cultura Huancavilca que luchó contra los incas.",
+        "keywords": ["toa", "princesa", "huancavilca", "indígena", "líder", "luchó", "incas", "guayaquil", "resistencia", "historia"]
+    },
+    {
+        "pregunta": "¿Qué es el Parque Nacional Galápagos?",
+        "respuesta": "Es la reserva marina y terrestre que protege la biodiversidad de las Islas Galápagos.",
+        "keywords": ["parque nacional", "galápagos", "reserva", "islas", "biodiversidad", "protección", "especies", "marina", "terrestre", "conservación"]
+    },
+    {
+        "pregunta": "¿Qué cultivo era muy importante para los pueblos preincaicos de la costa?",
+        "respuesta": "El maíz era uno de los cultivos más importantes.",
+        "keywords": ["maíz", "cultivo", "preincaicos", "costa", "agricultura", "alimento", "pueblos", "antiguos", "siembra", "cosecha"]
+    },
+    {
+        "pregunta": "¿Quién escribió el Himno Nacional del Ecuador?",
+        "respuesta": "La letra fue escrita por Juan León Mera y la música por Antonio Neumane.",
+        "keywords": ["himno", "ecuador", "juan león mera", "antonio neumane", "letra", "música", "compositor", "nacional", "símbolo", "canción"]
+    },
+    {
+        "pregunta": "¿Qué son los yumbos?",
+        "respuesta": "Fueron un pueblo indígena que habitó en el noroccidente de Pichincha.",
+        "keywords": ["yumbos", "indígenas", "pichincha", "noroccidente", "pueblo", "cultura", "preincaicos", "nativos", "historia", "selva"]
+    },
+    {
+        "pregunta": "¿Qué significa la bandera del Ecuador?",
+        "respuesta": "El amarillo representa el oro y la riqueza, el azul el océano y el cielo, y el rojo la sangre de los héroes.",
+        "keywords": ["bandera", "ecuador", "amarillo", "azul", "rojo", "colores", "significado", "oro", "cielo", "sangre héroes"]
+    },
+    {
+        "pregunta": "¿Quién fue Manuelita Sáenz?",
+        "respuesta": "Fue una patriota quiteña, conocida como la Libertadora del Libertador, que luchó por la independencia.",
+        "keywords": ["manuelita sáenz", "libertadora", "libertador", "quiteña", "patriota", "simón bolívar", "independencia", "heroína", "mujer", "historia"]
+    },
+    {
+        "pregunta": "¿Qué son los anfibios?",
+        "respuesta": "Son animales que viven parte de su vida en el agua y parte en la tierra, como las ranas.",
+        "keywords": ["anfibios", "ranas", "agua", "tierra", "metamorfosis", "renacuajos", "piel húmeda", "sapos", "vertebrados", "vida doble"]
+    },
+    {
+        "pregunta": "¿Qué son los mamíferos?",
+        "respuesta": "Son animales que nacen del vientre de su madre y maman cuando son pequeños.",
+        "keywords": ["mamíferos", "mamar", "vientre", "leche", "pelos", "vivíparos", "glándulas", "crías", "alimentar", "vertebrados"]
+    },
+    {
+        "pregunta": "¿Qué son los reptiles?",
+        "respuesta": "Son animales vertebrados que se arrastran, tienen escamas y ponen huevos.",
+        "keywords": ["reptiles", "escamas", "arrastran", "huevos", "ovíparos", "lagartos", "serpientes", "tortugas", "sangre fría", "vertebrados"]
+    },
+    {
+        "pregunta": "¿Qué son las aves?",
+        "respuesta": "Son animales vertebrados que tienen plumas, pico y la mayoría puede volar.",
+        "keywords": ["aves", "plumas", "pico", "volar", "alas", "huevos", "ovíparos", "vertebrados", "pájaros", "nidos"]
+    },
+    {
+        "pregunta": "¿Qué son los peces?",
+        "respuesta": "Son animales que viven en el agua, respiran por branquias y tienen escamas.",
+        "keywords": ["peces", "agua", "branquias", "escamas", "aletas", "nadar", "acuático", "océano", "ríos", "vertebrados"]
+    },
+    {
+        "pregunta": "¿Qué es la cadena alimenticia?",
+        "respuesta": "Es el proceso de quien se come a quién en la naturaleza para obtener energía.",
+        "keywords": ["cadena", "alimenticia", "comer", "depredador", "presa", "energía", "productores", "consumidores", "descomponedores", "ecosistema"]
+    },
+    {
+        "pregunta": "¿Qué son los animales omnívoros?",
+        "respuesta": "Son los que comen tanto plantas como carne de otros animales.",
+        "keywords": ["omnívoros", "comen", "plantas", "carne", "todo", "alimentación", "animales", "humanos", "osos", "cerdos"]
+    },
+    {
+        "pregunta": "¿Qué es el sistema solar?",
+        "respuesta": "Es el conjunto de planetas y otros cuerpos que giran alrededor del Sol.",
+        "keywords": ["sistema solar", "sol", "planetas", "giran", "órbita", "estrella", "espacio", "galaxia", "astros", "vía láctea"]
+    },
+    {
+        "pregunta": "¿Cuál es el planeta más cercano al Sol?",
+        "respuesta": "El planeta más cercano al Sol es Mercurio.",
+        "keywords": ["mercurio", "planeta", "cercano", "sol", "sistema solar", "pequeño", "calor", "órbita", "distancia", "astro"]
+    },
+    {
+        "pregunta": "¿Qué son los volcanes?",
+        "respuesta": "Son aberturas en la tierra por donde sale magma, ceniza y gases desde el interior.",
+        "keywords": ["volcanes", "magma", "lava", "ceniza", "erupción", "montaña", "tierra", "fuego", "cráter", "geología"]
+    },
+    {
+        "pregunta": "¿Qué es el reciclaje?",
+        "respuesta": "Es transformar materiales usados en nuevos productos para cuidar el planeta.",
+        "keywords": ["reciclaje", "transformar", "materiales", "usados", "nuevos", "cuidar", "planeta", "medio ambiente", "basura", "reutilizar"]
+    },
+    {
+        "pregunta": "¿Qué son las energías renovables?",
+        "respuesta": "Son energías que no se agotan, como la del sol, el viento o el agua.",
+        "keywords": ["renovables", "energía", "sol", "viento", "agua", "limpias", "naturaleza", "sostenible", "ecológico", "inagotable"]
+    },
+    {
+        "pregunta": "¿Qué es el calentamiento global?",
+        "respuesta": "Es el aumento de la temperatura de la Tierra por la contaminación del aire.",
+        "keywords": ["calentamiento", "global", "temperatura", "tierra", "contaminación", "clima", "cambio", "efecto invernadero", "gases", "planeta"]
+    },
+    {
+        "pregunta": "¿Qué es el ciclo del agua?",
+        "respuesta": "Es el proceso continuo de cómo el agua se mueve por la Tierra: evaporación, condensación y precipitación.",
+        "keywords": ["ciclo", "agua", "evaporación", "condensación", "precipitación", "lluvia", "nubes", "ríos", "océanos", "naturaleza"]
+    },
+    {
+        "pregunta": "¿Qué son los ecosistemas?",
+        "respuesta": "Son lugares donde los seres vivos se relacionan entre sí y con su ambiente.",
+        "keywords": ["ecosistemas", "seres vivos", "ambiente", "relación", "naturaleza", "bosque", "selva", "desierto", "hábitat", "equilibrio"]
+    },
+    {
+        "pregunta": "¿Qué son los hongos?",
+        "respuesta": "Seres vivos que no son plantas ni animales, como los champiñones y los mohos.",
+        "keywords": ["hongos", "champiñones", "mohos", "levaduras", "reino fungi", "descomponedores", "setas", "no plantas", "no animales", "naturaleza"]
+    },
+    {
+        "pregunta": "¿Qué son las bacterias?",
+        "respuesta": "Son microorganismos muy pequeños que pueden ser beneficiosos o causar enfermedades.",
+        "keywords": ["bacterias", "microorganismos", "pequeños", "microscopio", "beneficiosas", "enfermedades", "seres vivos", "unicelulares", "gérmenes", "salud"]
+    },
+    {
+        "pregunta": "¿Qué es un río?",
+        "respuesta": "Es una corriente de agua dulce que fluye desde las montañas hasta el mar o un lago.",
+        "keywords": ["río", "agua dulce", "corriente", "fluye", "montañas", "mar", "lago", "cauce", "caudal", "afluente"]
+    },
+    {
+        "pregunta": "¿Qué son las montañas?",
+        "respuesta": "Son grandes elevaciones naturales del terreno.",
+        "keywords": ["montañas", "elevaciones", "terreno", "altas", "naturaleza", "cordillera", "cerros", "picos", "geografía", "paisaje"]
+    },
+    {
+        "pregunta": "¿Qué es la contaminación?",
+        "respuesta": "Es la presencia de sustancias dañinas en el aire, el agua o el suelo.",
+        "keywords": ["contaminación", "dañino", "aire", "agua", "suelo", "basura", "humo", "químicos", "medio ambiente", "tóxico"]
+    },
+    {
+        "pregunta": "¿Qué es un volcán activo?",
+        "respuesta": "Es un volcán que puede hacer erupción en cualquier momento.",
+        "keywords": ["volcán", "activo", "erupción", "lava", "peligro", "magma", "fuego", "tierra", "explosión", "geología"]
+    },
+    {
+        "pregunta": "¿Qué son los glaciares?",
+        "respuesta": "Son grandes masas de hielo que se forman en las montañas o en los polos.",
+        "keywords": ["glaciares", "hielo", "masas", "frío", "montañas", "polos", "nieve", "agua congelada", "deshielo", "clima"]
+    },
+    {
+        "pregunta": "¿Qué es la biodiversidad?",
+        "respuesta": "Es la gran variedad de seres vivos que existen en un lugar.",
+        "keywords": ["biodiversidad", "variedad", "seres vivos", "especies", "animales", "plantas", "naturaleza", "ecosistema", "riqueza", "diversidad"]
+    },
+    {
+        "pregunta": "¿Qué son las estaciones del año?",
+        "respuesta": "Son los cuatro periodos en que se divide el año: primavera, verano, otoño e invierno.",
+        "keywords": ["estaciones", "año", "primavera", "verano", "otoño", "invierno", "clima", "temperatura", "cambios", "naturaleza"]
+    },
+    {
+        "pregunta": "¿Qué es la atmósfera?",
+        "respuesta": "Es la capa de gases que rodea la Tierra y nos protege de los rayos del sol.",
+        "keywords": ["atmósfera", "gases", "tierra", "rodea", "protege", "aire", "oxígeno", "capa", "clima", "espacio"]
+    },
+    {
+        "pregunta": "¿Qué es un terremoto?",
+        "respuesta": "Es un movimiento fuerte de la tierra causado por el choque de placas tectónicas.",
+        "keywords": ["terremoto", "temblor", "sismo", "tierra", "movimiento", "placas tectónicas", "vibración", "sacudida", "epicentro", "magnitud"]
+    },
+    {
+        "pregunta": "¿Qué son los tsunamis?",
+        "respuesta": "Son olas gigantes que se forman en el mar por un terremoto submarino.",
+        "keywords": ["tsunami", "olas", "gigantes", "mar", "terremoto", "submarino", "inundación", "costa", "ola gigante", "desastre"]
+    },
+    {
+        "pregunta": "¿Qué es el efecto invernadero?",
+        "respuesta": "Es cuando los gases atrapan el calor del sol en la atmósfera, calentando la Tierra.",
+        "keywords": ["efecto invernadero", "gases", "calor", "atmósfera", "calentamiento", "tierra", "dióxido de carbono", "metano", "clima", "temperatura"]
+    },
+    {
+        "pregunta": "¿Qué es una reserva ecológica?",
+        "respuesta": "Es un área protegida para cuidar la naturaleza y los animales que viven allí.",
+        "keywords": ["reserva", "ecológica", "protegida", "naturaleza", "animales", "conservar", "cuidar", "área", "parque", "medio ambiente"]
+    }
+]
