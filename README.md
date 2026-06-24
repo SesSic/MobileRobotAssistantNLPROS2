@@ -2,7 +2,7 @@
 
 > ROS2-based mobile assistant robot for educational environments, integrating offline NLP in Spanish, YOLOv8n object detection, and reactive navigation on Raspberry Pi 4B.
 
-📄 **Paper:** *Mobile Robot Assistant for Autonomous Navigation in Controlled Environments Using Natural Language Processing and ROS2* — Submitted to [Robotics (MDPI)](https://www.mdpi.com/journal/robotics), 2026.  
+📄 **Paper:** *ROS2-Based Low-Cost Mobile Robot for Educational Assistance with Reactive Navigation and Semantic-Cached Language Processing* — Submitted to [Robotics (MDPI)](https://www.mdpi.com/journal/robotics), 2026.  
 👥 **Authors:** Sebastián Alexis Aucapiña, Nataly Cecilia Benalcázar, José Varela-Aldás and Ramiro Isa-Jara  
 🏛️ **Institution:** Universidad Tecnológica Indoamérica / ESPOCH — Ecuador
 
@@ -44,15 +44,15 @@ The system is organized into four functional layers:
 
 ### ROS2 Nodes
 
-| Node | Function |
-|------|----------|
-| `usb_camera_node` | Real-time image acquisition |
-| `object_detector_node` | YOLOv8n-based object detection |
-| `object_follower_node` | Motion command generation |
-| `ultrasonic_node` | Obstacle distance measurement |
-| `imu_node` | Orientation estimation (MPU6050) |
-| `motor_controller_node` | PWM motor control (TB6612FNG) |
-| `voice_node` | Speech recognition + TTS + NLP orchestration |
+| Node | Package | Function |
+|------|---------|----------|
+| `usb_camera_node` | `robot_vision` | Real-time image acquisition |
+| `object_detector_node` | `robot_vision` | YOLOv8n-based object detection |
+| `object_follower_node` | `robot_vision` | Motion command generation |
+| `ultrasonic_node` | `robot_navigation` | Obstacle distance measurement |
+| `imu_odometry_node` | `robot_navigation` | Orientation estimation (MPU6050) |
+| `motor_controller_node` | `robot_navigation` | PWM motor control (TB6612FNG) |
+| `voice_node` | `robot_voice` | Speech recognition + TTS + NLP orchestration |
 
 ---
 
@@ -82,9 +82,9 @@ The system is organized into four functional layers:
 | Speech recognition | VOSK (offline, Latin American Spanish) |
 | TTS Online | Edge TTS |
 | TTS Offline | Piper TTS |
-| Local LLM | Qwen (quantized) |
-| Cloud LLM | Trinity (online) |
-| Semantic cache | Embedding-based similarity matching |
+| Local LLM | Qwen2.5-1.5B Q4_K_M (quantized) |
+| Cloud LLM | Trinity via OpenRouter API |
+| Semantic cache | all-MiniLM-L6-v2 (sentence-transformers) |
 
 ---
 
@@ -119,13 +119,13 @@ User Query (voice)
          │ MISS
          ▼
 ┌─────────────────┐
-│  Local Model    │  Qwen (offline, quantized)
+│  Local Model    │  Qwen2.5-1.5B Q4_K_M (offline)
 │  (Qwen)         │
 └────────┬────────┘
          │ Complex query / no connectivity
          ▼
 ┌─────────────────┐
-│  Cloud Model    │  Trinity API (online)
+│  Cloud Model    │  Trinity via OpenRouter (online)
 │  (Trinity)      │
 └─────────────────┘
 ```
@@ -142,36 +142,83 @@ The semantic cache resolved **33.3% of queries** without invoking any LLM, signi
 - ROS2 Humble installed
 - Python 3.10+
 
-### Clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/SesSic/MobileRobotAssistantNLPROS2.git
 cd MobileRobotAssistantNLPROS2
 ```
 
-### Install dependencies
+### 2. Install ROS2 dependencies
 
 ```bash
-pip install ultralytics vosk --break-system-packages
-sudo apt install ros-humble-cv-bridge ros-humble-sensor-msgs
+sudo apt install ros-humble-usb-cam ros-humble-cv-bridge ros-humble-sensor-msgs
 ```
 
-### Build the ROS2 workspace
+### 3. Install Python dependencies
+
+```bash
+pip install ultralytics vosk sentence-transformers openai --break-system-packages
+```
+
+### 4. Download models (not included — large files)
+
+| Model | Destination | Source |
+|-------|------------|--------|
+| VOSK Spanish small | `model-vosk-es-small/` | [alphacephei.com/vosk/models](https://alphacephei.com/vosk/models) — `vosk-model-small-es-0.42` |
+| YOLOv8n | workspace root | auto-downloaded on first run via Ultralytics |
+| Door detector | `src/robot_vision/models/` | see Dataset section below |
+| Piper TTS | `/home/<user>/piper/` | [github.com/rhasspy/piper](https://github.com/rhasspy/piper) |
+
+> **Note:** After downloading Piper, update the `piper_path` parameter in `src/robot_educativo/launch/robot_completo_launch.py` to match your installation path.
+
+### 5. Configure audio devices
+
+Edit `src/robot_educativo/launch/robot_completo_launch.py` and set your actual ALSA device IDs:
+
+```python
+'mic_device': 'hw:1,0',       # your microphone
+'speaker_device': 'plughw:2,0' # your speaker
+```
+
+Run `arecord -l` and `aplay -l` on the Pi to find your device numbers.
+
+### 6. Add your OpenRouter API key
+
+Edit `src/robot_voice/robot_voice/unified_processor.py` and replace:
+
+```python
+'openrouter_api_key': "YOUR_OPENROUTER_API_KEY_HERE"
+```
+
+### 7. Build and launch
 
 ```bash
 colcon build
 source install/setup.bash
+ros2 launch robot_educativo robot_completo_launch.py
 ```
 
-### Launch
+---
 
-```bash
-# Education mode
-ros2 launch robot_assistant education.launch.py
+## Repository Structure
 
-# Navigation mode
-ros2 launch robot_assistant navigation.launch.py
 ```
+MobileRobotAssistantNLPROS2/
+├── src/
+│   ├── robot_educativo/        # Main package: orchestrator + launch
+│   ├── robot_navigation/       # Motor, ultrasonic, IMU nodes
+│   ├── robot_vision/           # Camera, YOLO, follower nodes
+│   └── robot_voice/            # Voice recognition, TTS, NLP nodes
+├── scripts/                    # Utility and test scripts
+├── start_robot.sh              # Convenience startup script
+├── test_openrouter.py          # API connectivity test
+├── test_embeddings.py          # Semantic cache test
+├── test_vosk_integrado.py      # Speech recognition test
+└── .gitignore
+```
+
+> `build/`, `install/`, `log/`, and model files are excluded from the repository. Run `colcon build` to generate them locally.
 
 ---
 
@@ -183,7 +230,7 @@ Door detection model trained using transfer learning on the [Door Dataset](https
 
 ## Data Availability
 
-The experimental data supporting the results of this study are available upon reasonable request: saucapina2@indoamerica.edu.ec / sebaaucaaa@gmail.com
+The experimental data supporting the results of this study are available upon reasonable request: saucapina2@indoamerica.edu.ec
 
 ---
 
@@ -193,15 +240,15 @@ If you use this work, please cite:
 
 ```bibtex
 @article{aucapina2026mobile,
-  title={Mobile Robot Assistant for Autonomous Navigation in Controlled Environments Using Natural Language Processing and ROS2},
-  author={Aucapi{\~n}a, Sebasti{\'a}n Alexis and Benalc{\'a}zar, Nataly Cecilia and and Varela-Aldás José and Isa-Jara, Ramiro},
+  title={ROS2-Based Low-Cost Mobile Robot for Educational Assistance with Reactive Navigation and Semantic-Cached Language Processing},
+  author={Aucapi{\~n}a, Sebasti{\'a}n Alexis and Benalc{\'a}zar, Nataly Cecilia and Varela-Ald{\'a}s, Jos{\'e} and Isa-Jara, Ramiro},
   journal={Robotics},
   publisher={MDPI},
   year={2026}
 }
 ```
 
-> ⚠️ DOI will be added upon acceptance.
+> DOI will be added upon acceptance.
 
 ---
 
