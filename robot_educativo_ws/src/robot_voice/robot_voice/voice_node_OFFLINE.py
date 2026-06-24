@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """
-NODO DE VOZ UNIFICADO PARA ROBOT EDUCATIVO
-Versión: Edge TTS (online) + Piper (offline)
-Modos: Educación (solo voz) y Navegación (todos los nodos)
+NODO DE VOZ UNIFICADO PARA ROBOT EDUCATIVO - VERSION SOLO PIPER (OFFLINE)
 """
 
 import rclpy
@@ -16,9 +14,6 @@ import queue
 import subprocess
 import os
 import sys
-import tempfile
-import re
-import threading
 
 # VOSK y audio
 from vosk import Model, KaldiRecognizer
@@ -31,7 +26,7 @@ class VoiceNode(Node):
     def __init__(self):
         super().__init__('voice_node')
 
-        # ============ CONFIGURACIÓN ============
+        # ============ CONFIGURACION ============
         self.declare_parameters(
             namespace='',
             parameters=[
@@ -44,16 +39,14 @@ class VoiceNode(Node):
                 ('motor.auto_stop_duration', 2.0),
                 ('motor.speed_linear', 0.18),
                 ('motor.speed_angular', 2.5),
-                ('tts.voice_online', 'es-CL-CatalinaNeural'),
-                ('tts.voice_offline', 'es_MX-claude-high'),
-                ('tts.speed', 150),
+                ('tts.voice_offline', 'es_MX-claude-high.onnx'),
                 ('piper_path', '/home/sessic/piper'),
                 ('startup_message', ''),
-                ('speak_only', False),                  
+                ('speak_only', False),
             ]
         )
         
-        # Obtener parámetros
+        # Obtener parametros
         self.keyword = self.get_parameter('keyword').value.lower()
         self.sample_rate = self.get_parameter('audio.sample_rate').value
         self.channels = self.get_parameter('audio.channels').value
@@ -63,16 +56,15 @@ class VoiceNode(Node):
         self.auto_stop_duration = self.get_parameter('motor.auto_stop_duration').value
         self.motor_speed_linear = self.get_parameter('motor.speed_linear').value
         self.motor_speed_angular = self.get_parameter('motor.speed_angular').value
-        self.tts_voice_online = self.get_parameter('tts.voice_online').value
         self.tts_voice_offline = self.get_parameter('tts.voice_offline').value
         self.piper_path = self.get_parameter('piper_path').value
-        self.speak_only = self.get_parameter('speak_only').value 
-    
+        self.speak_only = self.get_parameter('speak_only').value
     
         self.cola_respuestas = queue.Queue()
         self.hilo_reproduccion = threading.Thread(target=self.reproducir_cola)
         self.hilo_reproduccion.daemon = True
         self.hilo_reproduccion.start()
+        
         # ============ ESTADO ============
         self.is_listening = True
         self.processing = False
@@ -82,8 +74,8 @@ class VoiceNode(Node):
         self.active_movement = False
         self.movement_timer = None
         
-        # ============ MODO DE OPERACIÓN ============
-        self.modo = "educacion"  # "educacion" o "navegacion" (por defecto educación)
+        # ============ MODO DE OPERACION ============
+        self.modo = "educacion"
         
         # ============ MEMORIA VISUAL ============
         self.ultima_deteccion = None
@@ -111,21 +103,19 @@ class VoiceNode(Node):
         
             self.status_timer = self.create_timer(1.0, self.status_callback)
         
-            # Iniciar hilo de escucha
             self.listening_thread = threading.Thread(target=self.listening_loop)
             self.listening_thread.daemon = True
             self.listening_thread.start()
         else:
-            self.get_logger().info("Modo SOLO HABLAR activado - sin micrófono")
+            self.get_logger().info("Modo SOLO HABLAR activado - sin microfono")
 
         subprocess.run(['ffmpeg', '-version'], capture_output=True)
 
         startup_msg = self.get_parameter('startup_message').value
         if startup_msg:
-            # Esperar un poco a que todo esté listo
             threading.Timer(2.0, lambda: self.hablar(startup_msg)).start()
-                
-    # ============ CALLBACKS DE VISIÓN ============
+    
+    # ============ CALLBACKS DE VISION ============
     
     def scene_callback(self, msg):
         self.ultima_descripcion = msg.data
@@ -141,7 +131,7 @@ class VoiceNode(Node):
         except Exception as e:
             self.get_logger().error(f"Error procesando detecciones: {e}")
     
-    # ============ MÉTODOS DE VOSK ============
+    # ============ METODOS DE VOSK ============
     
     def init_vosk(self):
         if not os.path.exists(self.vosk_model_path):
@@ -191,15 +181,6 @@ class VoiceNode(Node):
         msg.data = self.is_listening and not self.processing
         self.listening_pub.publish(msg)
     
-    def check_internet_rapido(self, timeout=2):
-        """Verifica conexión a internet rápido"""
-        try:
-            subprocess.run(['ping', '-c', '1', '-W', str(timeout), '8.8.8.8'], 
-                         timeout=timeout, capture_output=True)
-            return True
-        except:
-            return False
-    
     def detectar_keyword(self, texto):
         if not texto:
             return False, ""
@@ -217,22 +198,20 @@ class VoiceNode(Node):
         
         return False, ""
     
-    # ============ CLASIFICACIÓN DE COMANDOS ============
+    # ============ CLASIFICACION DE COMANDOS ============
     
     def clasificar_comando(self, texto):
         texto_lower = texto.lower()
         
-        # Comandos para cambiar de modo
         if "modo navegacion" in texto_lower or "modo navegación" in texto_lower:
             return 'cambiar_modo', 'navegacion'
         if "modo educacion" in texto_lower or "modo educación" in texto_lower:
             return 'cambiar_modo', 'educacion'
         
         patrones_ver = [
-            'describe lo que ves', 'dime qué ves',
-            'qué ves ahora', 'qué hay delante', 'qué estás viendo',
-            'hay alguien', 'hay personas', 'hay obstáculos',
-            'ves algo', 'qué ves en el entorno'
+            'que ves', 'que hay', 'describe', 'describe lo que ves',
+            'dime que ves', 'que hay delante', 'hay alguien',
+            'hay personas', 'hay obstaculos', 'ves algo'
         ]
         
         for patron in patrones_ver:
@@ -240,11 +219,12 @@ class VoiceNode(Node):
                 return 'ver', texto
         
         patrones_ir = [
-            've a la', 've hacia la',
+            've a', 've hacia', 've a la', 've hacia la',
             'sigue', 'sigue a', 'sigue la',
-            'acércate a', 'acércate a la',
+            'acercate a', 'acercate a la',
             'busca', 'encuentra', 'localiza',
-            'anda a la puerta', 'anda a la silla', 'anda a la persona'
+            've a la puerta', 've a la silla', 've a la persona',
+            'donde esta', 'donde esta'
         ]
         
         for patron in patrones_ir:
@@ -257,13 +237,13 @@ class VoiceNode(Node):
         
         if any(word in texto_lower for word in ['adelante', 'avanza', 'sigue derecho']):
             return 'movimiento', 'adelante'
-        elif any(word in texto_lower for word in ['atrás', 'retrocede', 've atrás']):
+        elif any(word in texto_lower for word in ['atras', 'retrocede', 've atras']):
             return 'movimiento', 'atras'
         elif any(word in texto_lower for word in ['izquierda', 'gira izquierda']):
             return 'movimiento', 'izquierda'
         elif any(word in texto_lower for word in ['derecha', 'gira derecha']):
             return 'movimiento', 'derecha'
-        elif any(word in texto_lower for word in ['detente', 'stop']):
+        elif any(word in texto_lower for word in ['detente', 'para', 'stop']):
             return 'movimiento', 'detente'
         elif any(word in texto_lower for word in ['apaga sistema', 'apagar sistema', 'shutdown']):
             return 'sistema', 'apagar'
@@ -309,31 +289,26 @@ class VoiceNode(Node):
     # ============ CONTROL DE MODOS ============
     
     def controlar_nodos(self, modo):
-        """Activa o desactiva nodos según el modo"""
+        """Activa o desactiva nodos segun el modo"""
         if modo == "navegacion":
-            self.get_logger().info("Activando modo NAVEGACIÓN")
-            
-            # Lanzar nodos de navegación
+            self.get_logger().info("Activando modo NAVEGACION")
             subprocess.Popen(['ros2', 'run', 'robot_navigation', 'motor_controller_node'])
             subprocess.Popen(['ros2', 'run', 'robot_navigation', 'imu_odometry_node'])
             subprocess.Popen(['ros2', 'run', 'robot_navigation', 'ultrasonic_node'])
             subprocess.Popen(['ros2', 'launch', 'robot_vision', 'detection_launch.py','camera_id:=0','confidence:=0.25'])
             subprocess.Popen(['ros2', 'run', 'robot_vision', 'object_follower_node'])
-            
-        else:  # modo educación
-            self.get_logger().info("Activando modo EDUCACIÓN")
-            
-            # Matar nodos de navegación (dejar solo voz)
+        else:
+            self.get_logger().info("Activando modo EDUCACION")
             subprocess.run(['pkill', '-f', 'motor_controller_node'], stderr=subprocess.DEVNULL)
             subprocess.run(['pkill', '-f', 'imu_odometry_node'], stderr=subprocess.DEVNULL)
             subprocess.run(['pkill', '-f', 'ultrasonic_node'], stderr=subprocess.DEVNULL)
             subprocess.run(['pkill', '-f', 'detection.launch.py'], stderr=subprocess.DEVNULL)
-            subprocess.run(['pkill', '-f', 'object_follower_node'],stderr=subprocess.DEVNULL)
+            subprocess.run(['pkill', '-f', 'object_follower_node'], stderr=subprocess.DEVNULL)
             subprocess.run(['pkill', '-f', 'usb_camera_node'], stderr=subprocess.DEVNULL)
             subprocess.run(['pkill', '-f', 'object_detector_node'], stderr=subprocess.DEVNULL)
-            
+    
     def cambiar_modo(self, nuevo_modo):
-        """Cambia entre modo educación y navegación"""
+        """Cambia entre modo educacion y navegacion"""
         if nuevo_modo == self.modo:
             self.hablar(f"Ya estoy en modo {self.modo}")
             return
@@ -342,13 +317,13 @@ class VoiceNode(Node):
         self.controlar_nodos(nuevo_modo)
         
         if nuevo_modo == "navegacion":
-            self.hablar("Modo navegación activado. Puedes darme órdenes de movimiento")
+            self.hablar("Modo navegacion activado. Puedes darme ordenes de movimiento")
         else:
-            self.hablar("Modo educación activado. Puedes hacerme preguntas")
+            self.hablar("Modo educacion activado. Puedes hacerme preguntas")
         
         self.get_logger().info(f"Modo cambiado a: {nuevo_modo}")
     
-    # ============ EJECUCIÓN DE COMANDOS ============
+    # ============ EJECUCION DE COMANDOS ============
     
     def ejecutar_movimiento(self, comando):
         twist = Twist()
@@ -389,7 +364,7 @@ class VoiceNode(Node):
     
     def ejecutar_ir(self, objeto):
         if not self.ultima_deteccion:
-            self.hablar("Primero tengo que ver el entorno. Di 'Robot ¿qué ves?'")
+            self.hablar("Primero tengo que ver el entorno. Di 'Robot que ves'")
             return
         
         if objeto not in self.objetos_detectados:
@@ -401,7 +376,7 @@ class VoiceNode(Node):
                     break
             
             if not encontrado:
-                self.hablar(f"No vi ningún {objeto} hace un momento. Di 'Robot ¿qué ves?' para actualizar")
+                self.hablar(f"No vi ningun {objeto} hace un momento. Di 'Robot que ves' para actualizar")
                 return
         
         target_msg = String()
@@ -414,93 +389,27 @@ class VoiceNode(Node):
             time.sleep(1)
         self.hablar(self.ultima_descripcion)
     
-    # ============ TTS: EDGE (ONLINE) Y PIPER (OFFLINE) ============
+    # ============ TTS: SOLO PIPER (OFFLINE) ============
     
     def hablar(self, texto):
         if not texto:
             return
         
-        # Publicar respuesta para otros nodos
         msg = String()
         msg.data = texto
         self.response_pub.publish(msg)
         
-        # Intentar Edge TTS primero (online)
-        if self.check_internet_rapido():
-            self.hablar_edge(texto)
-        else:
-            # Fallback a Piper (offline)
-            self.hablar_piper(texto)
-    
-    def hablar_edge(self, texto):
-        """Edge TTS con pipeline directo - Voz chilena CatalinaNeural"""
-        try:
-            # Escapar comillas y caracteres especiales para el shell
-            texto_escapado = texto.replace('"', '\\"').replace("'", "\\'").replace('`', '\\`').replace('$', '\\$')
-            
-            # Pipeline directo: edge-tts | ffmpeg | aplay
-            edge = subprocess.Popen(
-                ['edge-tts', '--text', texto, '--voice', self.tts_voice_online, '--write-media', '-'],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE
-            )
-            
-            ffmpeg = subprocess.Popen(
-                ['ffmpeg', '-i', 'pipe:0', '-f', 's16le', '-ar', '16000', '-ac', '1', '-loglevel', 'error', '-'],
-                stdin=edge.stdout,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE
-            )
-            
-            aplay = subprocess.Popen(
-                ['aplay', '-D', self.speaker_device, '-f', 'S16_LE', '-r', '16000'],
-                stdin=ffmpeg.stdout,
-                stderr=subprocess.PIPE
-            )
-            
-            # Cerrar pipes para evitar deadlocks
-            edge.stdout.close()
-            ffmpeg.stdout.close()
-            
-            # Esperar a que termine con timeout
-            aplay.wait(timeout=10)
-            
-        except subprocess.TimeoutExpired:
-            self.get_logger().error("Timeout en Edge TTS")
-            self.hablar_piper(texto)
-        except Exception as e:
-            self.get_logger().error(f"Error en Edge TTS: {e}")
-            self.hablar_piper(texto)
+        self.cola_respuestas.put(texto)
     
     def reproducir_cola(self):
-        """Hilo dedicado a reproducir respuestas una tras otra"""
         while True:
             texto = self.cola_respuestas.get()
             if texto is None:
                 break
-            # Usar hablar_edge directamente (o hablar_piper)
-            self.hablar_edge(texto)
+            self.hablar_piper(texto)
             self.cola_respuestas.task_done()
-            
-    def hablar(self, texto):
-        """Encola el texto para reproducir en orden"""
-        self.cola_respuestas.put(texto)
     
-    def verificar_audio(self):
-        """Verifica si el audio responde"""
-        try:
-            subprocess.run(
-                ['aplay', '-D', self.speaker_device, '--dump-hw-params'],
-                timeout=1,
-                capture_output=True,
-                check=True
-            )
-            return True
-        except:
-            return False
-        
     def hablar_piper(self, texto):
-        """Piper TTS offline - Voz mexicana claude-high"""
         try:
             cmd = f'echo "{texto}" | {self.piper_path}/piper --model {self.piper_path}/es_MX-claude-high.onnx --output-raw | aplay -D {self.speaker_device} -f S16_LE -r 22050 -t raw'
             subprocess.run(cmd, shell=True, timeout=15)
@@ -508,84 +417,61 @@ class VoiceNode(Node):
             self.get_logger().error(f"Error en Piper TTS: {e}")
     
     def procesar_comando(self, tipo, comando, texto_original):
-        """Procesa el comando usando el procesador unificado"""
         cmd_msg = String()
         cmd_msg.data = texto_original
         self.command_pub.publish(cmd_msg)
         
-        # Manejar cambio de modo
         if tipo == 'cambiar_modo':
             self.cambiar_modo(comando)
             return
         
-        # ============ FILTRAR COMANDOS SEGÚN MODO ============
         if self.modo == "educacion":
             if tipo == 'movimiento' or tipo == 'ir':
-                self.hablar("Estoy en modo educación. Activa modo navegacion para activar movimiento")
+                self.hablar("Estoy en modo educacion. Activa modo navegacion para activar movimiento")
                 return
         elif self.modo == "navegacion":
             if tipo == 'academico':
-                self.hablar("Estoy en modo navegación. Activa modo educacion para hacer preguntas")
+                self.hablar("Estoy en modo navegacion. Activa modo educacion para hacer preguntas")
                 return
-        # =====================================================
         
-        
-        
-        # ============ FEEDBACK INMEDIATO ============
         if tipo in ['academico', 'ver']:
             self.procesando_comando = True
             
             def decir_ok():
-                time.sleep(0.3)  # Pequeña pausa para asegurar orden
-                if self.procesando_comando:  # Si aún no responde
+                time.sleep(0.3)
+                if self.procesando_comando:
                     self.cola_respuestas.put("Ok")
             
             threading.Thread(target=decir_ok).start()
-        # ============================================
         
         if tipo == 'movimiento':
             self.ejecutar_movimiento(comando)
-            
         elif tipo == 'ver':
             self.ejecutar_ver()
-            
         elif tipo == 'ir':
             self.ejecutar_ir(comando)
-            
         elif tipo == 'sistema':
             if comando == 'apagar':
                 self.ejecutar_apagar_sistema()
-            
-        else:  # academico
+        else:
             if self.processor:
                 try:
                     resultado = self.processor.procesar_pregunta(comando)
                     respuesta = resultado['respuesta']
-
                     self.procesando_comando = False
                     self.cola_respuestas.put(respuesta)
-               
                 except Exception as e:
                     self.get_logger().error(f"Error en procesador: {e}")
                     self.cola_respuestas.put("Lo siento, tuve un problema procesando la pregunta")
             else:
-                self.cola_respuestas.put("El procesador de lenguaje no está disponible")
+                self.cola_respuestas.put("El procesador de lenguaje no esta disponible")
     
-    # NUEVA FUNCIÓN
     def ejecutar_apagar_sistema(self):
-        """Apaga el sistema de forma segura"""
-        self.get_logger().warn("⚠️ COMANDO DE APAGADO RECIBIDO")
-        
-        # Mensaje de voz
+        self.get_logger().warn("COMANDO DE APAGADO RECIBIDO")
         threading.Thread(target=self.hablar, args=("Apagando sistema",)).start()
-        
-        # Esperar 5 segundos para que termine de hablar
         time.sleep(5)
-        
         try:
-            # Ejecutar sudo shutdown (con contraseña)
-            subprocess.run(f'echo sebastian072 | sudo -S shutdown now', 
-                         shell=True, timeout=2)
+            subprocess.run(f'echo sebastian072 | sudo -S shutdown now', shell=True, timeout=2)
         except Exception as e:
             self.get_logger().error(f"Error en apagado: {e}")
     
