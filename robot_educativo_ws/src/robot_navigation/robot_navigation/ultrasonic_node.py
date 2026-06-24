@@ -44,6 +44,9 @@ class UltrasonicNode(Node):
     def measure_distance(self):
         """Mide distancia y publica como Float32 (metros)"""
         try:
+            pulse_start=time.time()
+            pulse_end=time.time()
+            
             # Asegurar trigger en bajo
             GPIO.output(self.TRIG, False)
             time.sleep(0.00005)  # 50µs
