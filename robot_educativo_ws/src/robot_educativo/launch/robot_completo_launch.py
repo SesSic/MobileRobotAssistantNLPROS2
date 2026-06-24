@@ -78,9 +78,9 @@ def generate_launch_description():
                 'mic_device': 'hw:1,0',
                 'speaker_device': 'plughw:2,0'
             }.items()
-        ),
+        ),       
         
-        # 7. ANUNCIO DE INICIO (después de 10 segundos)
+        # 7. ANUNCIO DE INICIO (después de 10 segundos) - CORREGIDO
         TimerAction(
             period=10.0,
             actions=[
@@ -88,7 +88,14 @@ def generate_launch_description():
                     package='robot_voice',
                     executable='voice_node',
                     name='startup_announcer',
-                    arguments=['--ros-args', '-p', f'startup_message:=Sistema cargado completamente. ¿En qué puedo ayudarte el día de hoy?'],
+                    parameters=[{
+                        'startup_message': 'Sistema cargado completamente. ¿En qué puedo ayudarte el día de hoy?',
+                        'speak_only': True, 
+                        'audio.device.speaker': 'plughw:2,0',  # MISMO parlante
+                        'tts.voice_online': 'es-CL-CatalinaNeural',  # MISMA voz
+                        'tts.voice_offline': 'es_MX-claude-high',  # MISMA voz offline
+                        'piper_path': '/home/sessic/piper/piper',  # MISMA ruta
+                    }],
                     output='log',
                 )
             ]
