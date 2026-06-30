@@ -18,7 +18,7 @@ The robot operates in two modes:
 
 Total hardware cost: **under $250 USD**.
 
-<img width="720" height="1280" alt="FrontalView2_1" src="https://github.com/user-attachments/assets/ec48239a-2f64-4a2d-8a29-7236c9ddf8cf" />
+<img width="1481" height="2509 alt="FrontalView2_1" src="https://github.com/user-attachments/assets/ec48239a-2f64-4a2d-8a29-7236c9ddf8cf" />
 
 
 ---
