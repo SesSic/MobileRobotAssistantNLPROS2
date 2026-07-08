@@ -1,6 +1,7 @@
 # ROS2-Based Low-Cost Mobile Robot for Educational Assistance with Reactive Navigation and Semantic-Cached Language Processing
 
 > ROS2-based mobile assistant robot for educational environments, integrating offline NLP in Spanish, YOLOv8n object detection, and reactive navigation on Raspberry Pi 4B.
+> [![DOI](https://img.shields.io/badge/DOI-10.3390%2Frobotics15070131-blue)](https://doi.org/10.3390/robotics15070131)
 
 📄 **Paper:** *ROS2-Based Low-Cost Mobile Robot for Educational Assistance with Reactive Navigation and Semantic-Cached Language Processing* — Submitted to [Robotics (MDPI)](https://www.mdpi.com/journal/robotics), 2026.  
 👥 **Authors:** Sebastián Alexis Aucapiña, Nataly Cecilia Benalcázar, José Varela-Aldás and Ramiro Isa-Jara  
@@ -241,16 +242,20 @@ If you use this work, please cite:
 
 ```bibtex
 @article{aucapina2026mobile,
-  title={ROS2-Based Low-Cost Mobile Robot for Educational Assistance with Reactive Navigation and Semantic-Cached Language Processing},
-  author={Aucapi{\~n}a, Sebasti{\'a}n Alexis and Benalc{\'a}zar, Nataly Cecilia and Varela-Ald{\'a}s, Jos{\'e} and Isa-Jara, Ramiro},
+  title={ROS2-Based Low-Cost Mobile Robot for Educational Assistance 
+         with Reactive Navigation and Semantic-Cached Language Processing},
+  author={Aucapi{\~n}a, Sebasti{\'a}n Alexis and Benalc{\'a}zar, 
+          Nataly Cecilia and Varela-Ald{\'a}s, Jos{\'e} and Isa-Jara, Ramiro},
   journal={Robotics},
+  volume={15},
+  number={7},
+  pages={131},
+  year={2026},
   publisher={MDPI},
-  year={2026}
+  doi={10.3390/robotics15070131}
 }
 ```
-
-> DOI will be added upon acceptance.
-
+📄 **Published paper:** https://doi.org/10.3390/robotics15070131
 ---
 
 ## License
